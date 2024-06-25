@@ -1,0 +1,62 @@
+{
+  "champion": {
+     "customers": 0,
+     "recency": 0,
+     "frequency": 0,
+     "monetary": 0
+   },
+  "royal": {
+     "customers": 0,
+     "recency": 0,
+     "frequency": 0,
+     "monetary": 0
+   },
+   "potential_royal": {
+     "customers": 5,
+     "recency": 35,
+     "frequency": 6.0,
+     "monetary": 161447
+   },
+  "new": {
+     "customers": 28,
+     "recency": 28,
+     "frequency": 1.29,
+     "monetary": 20064
+   },
+  "promising": {
+     "customers": 40,
+     "recency": 35,
+     "frequency": 1.25,
+     "monetary": 27397
+   },
+  "need_attention": {
+     "customers": 34,
+     "recency": 41,
+     "frequency": 1.03,
+     "monetary": 23527
+   },
+  "sleep": {
+     "customers": 1,
+     "recency": 40,
+     "frequency": 1.0,
+     "monetary": 1000000
+   },
+  "cant_lose": {
+     "customers": 0,
+     "recency": 0,
+     "frequency": 0,
+     "monetary": 0
+   },
+  "risk": {
+     "customers": 0,
+     "recency": 0,
+     "frequency": 0,
+     "monetary": 0
+   },
+   "hibernating": {
+     "customers": 83,
+     "recency": 53,
+     "frequency": 1.08,
+     "monetary": 22421
+   }
+ }
