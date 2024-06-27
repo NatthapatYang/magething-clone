@@ -1,0 +1,26 @@
+{% extends 'layout/application.html' %}
+
+{% block content %}
+    <h1>Show percent</h1>
+    <br>
+    <div class="flex ">
+        <div>
+            <p>Recency Percent</p>
+            {% for k , v in group_r_percent %} 
+                <li>{{ k }} : {{ v }}%</li> 
+            {% endfor %} 
+        </div>
+        <div class=" ml-40"> 
+            <p>Frequency Percent</p>
+            {% for k , v in group_f_percent %} 
+                <li>{{ k }} : {{ v }}%</li> 
+            {% endfor %} 
+        </div>
+        <div class=" ml-40">
+            <p>Monetary Percent</p>
+            {% for k , v in group_m_percent %} 
+                <li>{{ k }} : {{ v }}%</li> 
+            {% endfor %} 
+        </div>
+    </div>
+{% endblock %}
