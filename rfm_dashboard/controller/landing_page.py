@@ -6,12 +6,6 @@ bp = Blueprint('landing_page', __name__)
 @bp.route('/rfm', methods=['GET'])
 def index():
     rfm_data = get_rfm_data()
-
-    return render_template('landing/index.html', rfm_data=rfm_data)
-
-@bp.route('/barchart', methods=['GET'])
-def barchart():
-    rfm_data = get_rfm_data()
     r_percent = get_r_percent()
     f_percent = get_f_percent()
     m_percent = get_m_percent()
