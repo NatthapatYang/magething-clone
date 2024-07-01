@@ -1,8 +1,0 @@
-{% extends 'layout/application.html' %}
-
-{% block content %}
-    <h1>Show data</h1>
-    {% for k,v in rfm_data.items() %}
-        <p>{{ k }}: {{ v }}</p>
-    {% endfor %}
-{% endblock %}
