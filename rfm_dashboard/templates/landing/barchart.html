@@ -23,4 +23,12 @@
             {% endfor %} 
         </div>
     </div>
+    <br>
+    {% for k,v in rfm_data.items() %}
+        <p>{{ k }} : {{ v['customers'] }}</p>
+    {% endfor %}
+    <br>
+    {% for k,v in rfm_data.items() %}
+        <p>{{ k }} : {{ v }}</p>
+    {% endfor %}
 {% endblock %}
