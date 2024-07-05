@@ -23,6 +23,8 @@ def reverse_percentage(data_value, max, min):
     for i in data_value:
         if i == 0:
             percent_result.append(0)
+        elif i == max:
+            percent_result.append(1)
         else:
             percent_result.append(round(((max - i) / (max - min)) * 100))
 
