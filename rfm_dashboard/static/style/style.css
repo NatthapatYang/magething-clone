@@ -1,0 +1,19 @@
+@keyframes slideIn {
+    from {
+        width: 0%;
+    }
+}
+
+.bar-animation {
+    animation: slideIn 2s ease-out forwards; 
+    padding-block-start: 1.2rem;
+}
+
+.rfm-button {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.rfm-button:hover {
+    background: rgb(239 68 68 );
+    transition: 0.3s;
+}
