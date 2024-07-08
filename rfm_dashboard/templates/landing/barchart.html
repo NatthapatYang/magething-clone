@@ -3,7 +3,7 @@
 {% block content %}
 <div class="flex max-w-[1600px]">
     <div class="ml-10 mt-10 border-solid border-2 border-black-100 rounded-xl px-10 py-20 ">
-        <p class="grid grid-cols-1 justify-items-end mt-1">Customers</p>
+        <p class="text-right mt-1">Customers</p>
         <div class="flex grid grid-cols-[100px_150px] justify-items-end">
             <div class="">
                 {% for k,v in rfm_data.items() %}
@@ -20,61 +20,44 @@
 
     <!-- test r_percent -->
 
-    <div class="mt-10 bg-gray-100 border-solid border-2 border-black-100 rounded-xl p-10 " id="Recency">
-        <div class="flex justify-center" id="rfmbutton">
+    <div class="mt-10 bg-gray-100 border-solid border-2 border-black-100 rounded-xl p-10 ">
+        <div class="flex justify-center" id="rfm-button">
             <button class="ml-5 rounded-md bg-red-500 h-10 w-10 rfm-button" id="R_button">R</button>
             <button class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" id="F_button">F</button>
             <button class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" id="M_button">M</button>
         </div>
-        <div class="mt-1">
+
+        <div class="mt-1" id="recency">
             <p class="grid grid-cols-[50px_200px] justify-items-end">days</p>
             {% for k , v in r_percent %} 
             <div class="line-item border-b-gray-100 grid grid-cols-[50px_200px] justify-start mt-3">
-                <div class="grid justify-end ">{{ k }}</div>
-                <div class="bg-gray-300 h-[80%] p-0 m-0 rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
-                    <div class="block bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
+                <div class="grid text-right">{{ k }}</div>
+                <div class="bg-gray-300 h-[80%] rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
+                    <div class="bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
                 </div>
             </div>
             {% endfor %} 
         </div>
-    </div>
 
-    <!-- test f_percent -->
-
-    <div class="mt-10 bg-gray-100 border-solid border-2 border-black-100 rounded-xl p-10 " id="Frequency">
-        <div class="flex justify-center" id="rfmbutton">
-            <button class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" id="R_button">R</button>
-            <button class="ml-5 rounded-md bg-red-500 h-10 w-10 rfm-button" id="F_button">F</button>
-            <button class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" id="M_button">M</button>
-        </div>
-        <div class="mt-1">
-            <p class="grid grid-cols-[50px_200px] justify-items-end">orders</p>
-            {% for k , v in f_percent %} 
-            <div class="line-item border-b-gray-100 grid grid-cols-[50px_200px] justify-start mt-3">
-                <div class="grid justify-end">{{ k }}</div>
-                <div class="bg-gray-300 h-[80%] p-0 m-0 rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
-                    <div class="block bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
-                </div>
-            </div>
-            {% endfor %} 
-        </div>
-    </div>
-
-    <!-- test m_percent -->
-
-    <div class="mt-10 bg-gray-100 border-solid border-2 border-black-100 rounded-xl p-10 " id="Monetary">
-        <div class="flex justify-center" id="rfmbutton">
-            <button class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" id="R_button">R</button>
-            <button class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" id="F_button">F</button>
-            <button class="ml-5 rounded-md bg-red-500 h-10 w-10 rfm-button" id="M_button">M</button>
-        </div>
-        <div class="mt-1">
-            <p class="grid grid-cols-[50px_200px] justify-items-end">baht</p>
+        <div class="mt-1 hidden" id="frequency">
+            <p class="grid grid-cols-[50px_200px] justify-items-end ">baht</p>
             {% for k , v in m_percent %} 
             <div class="line-item border-b-gray-100 grid grid-cols-[50px_200px] justify-start mt-3">
-                <div class="grid justify-end">{{ k }}</div>
-                <div class="bg-gray-300 h-[80%] p-0 m-0 rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
-                    <div class="block bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
+                <div class="grid text-right">{{ k }}</div>
+                <div class="bg-gray-300 h-[80%] rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
+                    <div class="bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
+                </div>
+            </div>
+            {% endfor %} 
+        </div>
+
+        <div class="mt-1 hidden" id="monetary">
+            <p class="grid grid-cols-[50px_200px] justify-items-end ">orders</p>
+            {% for k , v in f_percent %} 
+            <div class="line-item border-b-gray-100 grid grid-cols-[50px_200px] justify-start mt-3">
+                <div class="grid text-right">{{ k }}</div>
+                <div class="bg-gray-300 h-[80%] rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
+                    <div class="bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
                 </div>
             </div>
             {% endfor %} 
