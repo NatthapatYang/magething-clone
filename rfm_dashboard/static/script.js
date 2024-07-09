@@ -1,35 +1,52 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const rButton = document.getElementById('r_button');
-    const fButton = document.getElementById('f_button');
-    const mButton = document.getElementById('m_button');
-    const recencyDiv = document.getElementById('recency');
-    const frequencyDiv = document.getElementById('frequency');
-    const monetaryDiv = document.getElementById('monetary');
+    const segmentBtns = document.querySelectorAll('#rfm-buttons button');
+    const barChartElem = document.querySelectorAll('.bar-chart');
 
-    rButton.style.backgroundColor = 'rgb(239, 68, 68)'; 
+    setDefaultSegment();
 
-    rButton.addEventListener('click', function() {
-        recencyDiv.style.display = 'block'; 
-        frequencyDiv.style.display = 'none';
-        monetaryDiv.style.display = 'none';
-        fButton.style.backgroundColor = '';
-        mButton.style.backgroundColor = '';
-        rButton.style.backgroundColor = 'rgb(239, 68, 68)'; 
-    });
-    fButton.addEventListener('click', function() {
-        frequencyDiv.style.display = 'block';
-        recencyDiv.style.display = 'none'; 
-        monetaryDiv.style.display = 'none';
-        rButton.style.backgroundColor = '';
-        mButton.style.backgroundColor = '';
-        fButton.style.backgroundColor = 'rgb(239, 68, 68)'; 
-    });
-    mButton.addEventListener('click', function() {
-        monetaryDiv.style.display = 'block'; 
-        recencyDiv.style.display = 'none';
-        frequencyDiv.style.display = 'none';
-        rButton.style.backgroundColor = '';
-        fButton.style.backgroundColor = '';
-        mButton.style.backgroundColor = 'rgb(239, 68, 68)'; 
-    });
+    segmentBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const segmentType = this.dataset.segmentType
+
+            removeHighlightFromAllButtons();
+            highlightSelectedSegment(this);
+
+            handleActiveSegment(segmentType);
+        });
+    })
+
+    function setDefaultSegment() {
+        const defaultSegment = 'recency';
+        const defaultSegmentElem = document.getElementById(defaultSegment);
+
+        highlightSelectedSegment(segmentBtns[0])
+        showSelectedSegment(defaultSegmentElem);
+    }
+
+    function handleActiveSegment(segmentType) {
+        const segmentElem = document.getElementById(segmentType);
+
+        hideAllSegments();
+        showSelectedSegment(segmentElem);
+    }
+
+    function hideAllSegments() {
+        barChartElem.forEach((elem) => {
+            elem.style.display = 'none';
+        });
+    }
+
+    function showSelectedSegment(segmentElem) {
+        segmentElem.style.display = 'block';
+    }
+
+    function removeHighlightFromAllButtons() {
+        segmentBtns.forEach((btn) => {
+            btn.style.backgroundColor = '';
+        });
+    }
+
+    function highlightSelectedSegment(btn) {
+        btn.style.backgroundColor = 'rgb(239, 68, 68)';
+    }
 });
