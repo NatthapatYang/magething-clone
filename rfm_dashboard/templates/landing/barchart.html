@@ -1,0 +1,65 @@
+{% extends 'layout/application.html' %}
+
+{% block content %}
+<div class="flex max-w-[1600px]">
+    <div class="ml-10 mt-10 border-solid border-2 border-black-100 rounded-xl px-10 py-20 ">
+        <p class="text-right mt-1">Customers</p>
+        <div class="flex grid grid-cols-[100px_150px] justify-items-end">
+            <div class="">
+                {% for k,v in rfm_data.items() %}
+                    <p class="grid justify-items-start mt-3">{{ k }}</p>
+                {% endfor %}
+            </div>
+            <div class="ml-20 ">
+                {% for k,v in rfm_data.items() %}
+                    <div class="grid justify-items-end mt-3">{{ v['customers'] }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-10 bg-gray-100 border-solid border-2 border-black-100 rounded-xl p-10 ">
+        <div class="flex justify-center" id="rfm-buttons">
+            <button id="r-button" class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" data-segment-type="recency">R</button>
+            <button id="f-button" class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" data-segment-type="frequency">F</button>
+            <button id="m-button" class="ml-5 rounded-md bg-white h-10 w-10 rfm-button" data-segment-type="monetary">M</button>
+        </div>
+
+        <div class="bar-chart mt-1 hidden" id="recency">
+            <p class="grid grid-cols-[50px_200px] justify-items-end">days</p>
+            {% for k , v in r_percent %} 
+                <div class="line-item border-b-gray-100 grid grid-cols-[50px_200px] justify-start mt-3">
+                    <div class="text-right">{{ k }}</div>
+                    <div class="bg-gray-300 h-[80%] rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
+                        <div class="bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
+                    </div>
+                </div>
+            {% endfor %} 
+        </div>
+
+        <div class="bar-chart mt-1 hidden" id="frequency">
+            <p class="grid grid-cols-[50px_200px] justify-items-end ">baht</p>
+            {% for k , v in m_percent %} 
+                <div class="line-item border-b-gray-100 grid grid-cols-[50px_200px] justify-start mt-3">
+                    <div class="text-right">{{ k }}</div>
+                    <div class="bg-gray-300 h-[80%] rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
+                        <div class="bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
+                    </div>
+                </div>
+            {% endfor %} 
+        </div>
+
+        <div class="bar-chart mt-1 hidden" id="monetary">
+            <p class="grid grid-cols-[50px_200px] justify-items-end ">orders</p>
+            {% for k , v in f_percent %} 
+                <div class="line-item border-b-gray-100 grid grid-cols-[50px_200px] justify-start mt-3">
+                    <div class="text-right">{{ k }}</div>
+                    <div class="bg-gray-300 h-[80%] rounded-xl ml-8 truncate" style="box-shadow: rgb(179, 179, 179) 1px 1px 1px;">
+                        <div class="bg-red-500 bar-animation" style="width: {{ v }}%;"></div>
+                    </div>
+                </div>
+            {% endfor %} 
+        </div>
+    </div>
+</div>
+{% endblock %}
